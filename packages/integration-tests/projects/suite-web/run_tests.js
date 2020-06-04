@@ -2,8 +2,6 @@
     Heavily inspired by Mattermost,
     https://github.com/mattermost/mattermost-webapp/blob/master/e2e/run_tests.js good job guys.
 */
-const GalaxyNexusChromeUA =  'Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19';
-const IphoneChromeUA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1'
 const cypress = require('cypress');
 const shell = require('shelljs');
 const argv = require('yargs').argv;
@@ -94,9 +92,28 @@ async function runTests() {
 
         let testRunNumber = 0;
 
+        const userAgent = grepForValue('@user-agent', testFile);
+
         console.log('');
         console.log(`[run_tests.js] testing next file ${testFile}`);
         console.log(`[run_tests.js] allowed to run ${allowedRuns} times`);
+
+        const config = {
+            baseUrl: CYPRESS_baseUrl,
+            supportFile: `${__dirname}/support/index.ts`,
+            pluginsFile: `${__dirname}/plugins/index.js`,
+            screenshotsFolder: `${__dirname}/screenshots`,
+            integrationFolder: `${__dirname}/tests`,
+            videosFolder: `${__dirname}/videos`,
+            video: true,
+            chromeWebSecurity: false,
+            trashAssetsBeforeRuns: false,
+        };
+
+        if (userAgent) {
+            console.log('[run_tests.js] using custom user agent', userAgent);
+            Object.assign(config, { userAgent });
+        }
 
         while(testRunNumber < allowedRuns) {
             testRunNumber++;
@@ -106,18 +123,7 @@ async function runTests() {
                     // headless,
                     headed: true,
                     spec,
-                    config: {
-                        baseUrl: CYPRESS_baseUrl,
-                        supportFile: `${__dirname}/support/index.ts`,
-                        pluginsFile: `${__dirname}/plugins/index.js`,
-                        screenshotsFolder: `${__dirname}/screenshots`,
-                        integrationFolder: `${__dirname}/tests`,
-                        videosFolder: `${__dirname}/videos`,
-                        video: true,
-                        chromeWebSecurity: false,
-                        trashAssetsBeforeRuns: false,
-                        userAgent: IphoneChromeUA,
-                    },
+                    config,
                     configFile: false,
                 });
 
