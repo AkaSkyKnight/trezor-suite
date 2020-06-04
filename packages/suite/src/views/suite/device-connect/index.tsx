@@ -67,7 +67,7 @@ const Index = (props: Props) => {
                 onLoad={() => setImageLoaded(true)}
                 onError={() => setImageLoaded(true)}
             />
-            {showWebUsb && !isMobile() && (
+            {showWebUsb && (
                 <ButtonWrapper>
                     <WebusbButton ready={imageLoaded}>
                         <Button icon="PLUS">
@@ -96,7 +96,7 @@ const Index = (props: Props) => {
                     </P>
                 </BridgeWrapper>
             )}
-            {showWebUsb && (
+            {showWebUsb && !isMobile() && (
                 <BridgeWrapper>
                     <P size="tiny">
                         <Translation
