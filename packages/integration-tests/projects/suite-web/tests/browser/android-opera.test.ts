@@ -11,6 +11,8 @@ describe('Android with Opera-mini browser ', () => {
     });
 
     it('Should display "Get Chrome for Android"', () => {
+        cy.prefixedVisit('/');
         cy.get('body').should('contain.text', 'Get Chrome for Android');
+        cy.screenshot();
     })
 })
