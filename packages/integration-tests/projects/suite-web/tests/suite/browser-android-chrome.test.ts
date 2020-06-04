@@ -3,6 +3,7 @@
 
 describe('Android with chrome browser ', () => {
     before(() => {
+        cy.task('stopEmu');
         cy.viewport('samsung-s10');
         cy.resetDb();
     });

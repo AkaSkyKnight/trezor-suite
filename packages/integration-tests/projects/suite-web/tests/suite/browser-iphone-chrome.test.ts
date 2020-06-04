@@ -9,11 +9,6 @@ describe('iPhone with chrome browser ', () => {
 
     it('There is no way to connect trezor to iPhone at the moment', () => {
         cy.prefixedVisit('/');
-        cy.get('html').should('contain.text', 'No webUSB support');
+        cy.get('body').should('contain.text', 'No WebUSB support');
     });
-
-    // it('On mobile chrome, install bridge and udev rules shall NOT appear', () => {
-    //     cy.prefixedVisit('/');
-    //     cy.passThroughInitialRun();
-    // })
 })
