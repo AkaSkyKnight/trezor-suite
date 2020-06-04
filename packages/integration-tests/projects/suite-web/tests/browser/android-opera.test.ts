@@ -1,6 +1,8 @@
 // @beta
 // @user-agent=Opera/9.80 (J2ME/MIDP; Opera Mini/5.1.21214/28.2725; U; ru) Presto/2.8.119 Version/11.10
 
+// note that running tests in /browser folder will not work in 'debug local setup'
+
 describe('Android with Opera-mini browser ', () => {
     before(() => {
         cy.task('stopEmu');
