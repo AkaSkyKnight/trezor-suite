@@ -11,7 +11,6 @@ describe('Windows 7 with outdated chrome ', () => {
     it('Should just display outdated browser', () => {
         cy.prefixedVisit('/');
         cy.get('html').should('contain.text', 'Your browser is outdated');
-        cy.get('a').click();
-        cy.getTestElement('fooo');
+        cy.screenshot();
     });
 })

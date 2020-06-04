@@ -11,5 +11,6 @@ describe('Windows 10 with edge browser ', () => {
     it('Should display unsupported browsers page', () => {
         cy.prefixedVisit('/');
         cy.get('html').should('contain.text', 'Your browser is not supported');
+        cy.screenshot();
     });
 })
