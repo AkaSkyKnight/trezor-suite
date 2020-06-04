@@ -118,7 +118,7 @@ async function runTests() {
         while(testRunNumber < allowedRuns) {
             testRunNumber++;
             try {
-                const {totalFailed } = await cypress.open({
+                const {totalFailed } = await cypress.run({
                     browser: BROWSER,
                     // headless,
                     headed: true,
