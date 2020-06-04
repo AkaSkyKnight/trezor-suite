@@ -2,7 +2,8 @@
     Heavily inspired by Mattermost,
     https://github.com/mattermost/mattermost-webapp/blob/master/e2e/run_tests.js good job guys.
 */
-
+const GalaxyNexusChromeUA =  'Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19';
+const IphoneChromeUA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1'
 const cypress = require('cypress');
 const shell = require('shelljs');
 const argv = require('yargs').argv;
@@ -100,7 +101,7 @@ async function runTests() {
         while(testRunNumber < allowedRuns) {
             testRunNumber++;
             try {
-                const {totalFailed } = await cypress.run({
+                const {totalFailed } = await cypress.open({
                     browser: BROWSER,
                     // headless,
                     headed: true,
@@ -115,6 +116,7 @@ async function runTests() {
                         video: true,
                         chromeWebSecurity: false,
                         trashAssetsBeforeRuns: false,
+                        userAgent: IphoneChromeUA,
                     },
                     configFile: false,
                 });
