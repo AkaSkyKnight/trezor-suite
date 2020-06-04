@@ -3,7 +3,7 @@
 
 describe('Android with chrome browser ', () => {
     before(() => {
-        cy.viewport(1024, 768)
+        cy.viewport('samsung-s10');
         cy.resetDb();
     });
 

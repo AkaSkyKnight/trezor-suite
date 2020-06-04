@@ -3,7 +3,7 @@
 
 describe('iPhone with chrome browser ', () => {
     before(() => {
-        cy.viewport(1024, 768)
+        cy.viewport('iphone-6');
         cy.resetDb();
     });
 
