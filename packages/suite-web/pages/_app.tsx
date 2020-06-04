@@ -75,7 +75,6 @@ class TrezorSuiteApp extends App<Props> {
                                 just because we need make trezor-connect render the iframe
                             */}
                             <div
-                                data-test="@webusb-button"
                                 className="trezor-webusb-button"
                                 style={{
                                     width: '100%',

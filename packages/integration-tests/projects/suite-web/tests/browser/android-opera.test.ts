@@ -3,7 +3,7 @@
 
 // note that running tests in /browser folder will not work in 'debug local setup'
 
-describe('Android with Opera-mini browser ', () => {
+describe('Android with Opera-mini browser', () => {
     before(() => {
         cy.task('stopEmu');
         cy.viewport('samsung-s10');

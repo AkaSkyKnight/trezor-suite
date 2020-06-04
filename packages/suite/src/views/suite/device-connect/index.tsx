@@ -67,10 +67,10 @@ const Index = (props: Props) => {
                 onLoad={() => setImageLoaded(true)}
                 onError={() => setImageLoaded(true)}
             />
-            {true && (
+            {showWebUsb && (
                 <ButtonWrapper>
                     <WebusbButton ready={imageLoaded}>
-                        <Button icon="PLUS">
+                        <Button icon="PLUS" data-test="@modal/connect-device/webusb-button">
                             <Translation id="TR_CHECK_FOR_DEVICES" />
                         </Button>
                     </WebusbButton>

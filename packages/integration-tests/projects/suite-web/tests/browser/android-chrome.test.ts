@@ -14,6 +14,6 @@ describe('Android with chrome browser ', () => {
         cy.prefixedVisit('/');
         cy.passThroughInitialRun();
         cy.wait(2000);
-        cy.getTestElement('@webusb-button').should('be.visible');
+        cy.getTestElement('@modal/connect-device/webusb-button').should('be.visible');
     })
 })
