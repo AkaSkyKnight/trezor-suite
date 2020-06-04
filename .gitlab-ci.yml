@@ -59,7 +59,7 @@ stages:
 
 include:
     - ci/environment.yml
-    # - ci/install-and-build.yml
+    - ci/install-and-build.yml
     # - ci/packages/components.yml
     # - ci/packages/suite.yml
     - ci/packages/suite-web.yml
