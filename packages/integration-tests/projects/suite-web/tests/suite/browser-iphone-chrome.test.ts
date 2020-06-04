@@ -1,7 +1,5 @@
 // @beta
-// @user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1
-
-// const GalaxyNexusChromeUA = 'Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19';
+// @user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1
 
 describe('iPhone with chrome browser ', () => {
     before(() => {
@@ -10,6 +8,7 @@ describe('iPhone with chrome browser ', () => {
     });
 
     it('There is no way to connect trezor to iPhone at the moment', () => {
+        cy.prefixedVisit('/');
         cy.get('html').should('contain.text', 'No webUSB support');
     });
 
